@@ -1,3 +1,3 @@
-# Kapcsolati oldal symfony használatával
+# Kapcsolati oldal - symfony használatával
 
-Virág-Czuczor Noémi - egy kapcsolati oldal symfony használatával
+Virág-Czuczor Noémi - egy kapcsolati oldal létrehozás symfony használatával
