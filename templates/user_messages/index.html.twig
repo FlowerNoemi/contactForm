@@ -1,14 +1,52 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
 {% block title %}Kapcsolati oldal{% endblock %}
 
+
 {% block body %}
 
-
 <div class="container">
+
 <div class="row">
-    <h1 class="text-center">Hello</h1>
-    <button type="button" class="btn btn-primary">Küldés</button>
+        <h1 class="col-12 sub-page-h1 text-center mt-2">Kapcsolat</h1>
 </div>
+	<div class="row">
+	  	<div class="col-12 col-md-10 col-lg-9 mx-auto">
+          {% for flashError in app.flashes('error') %}
+                <div class="alert alert-danger">{{ flashError }}</div>
+            {% endfor %}
+	</div>
+    	{{ form_start(form, {"attr": {"novalidate" : "novalidate"}})}}
+        <div class="col-12 col-lg-8 mx-auto">
+
+		</div>
+
+		<div class="col-12 col-lg-8 mx-auto">
+				<div class="form-group">
+				{{ form_label(form.name, "Neved") }}
+				{{ form_widget(form.name, {'attr': {'class': 'form-control input-class'}}) }}
+				</div>
+		</div>
+		<div class="col-12 col-lg-8 mx-auto">
+				<div class="form-group">
+					{{ form_label(form.email, "E-mail címed") }}
+					{{ form_widget(form.email, {'attr': {'class': 'form-control input-class'}}) }}
+				</div>
+		</div>
+		<div class="col-12 col-lg-8 mx-auto">
+				<div class="form-group">
+				{{ form_label(form.message, "Üzenet szövege") }}
+				{{ form_widget(form.message, {'attr': {'class': 'form-control input-class'}}) }}
+				</div>
+		</div>
+
+        <div class="col-12 col-lg-8 mx-auto my-2">
+            <button type="submit" class="btn btn-secondary btn-lg col-12">Küldés</button>
+        </div>
+    {{ form_end(form)}}
 </div>
+	</div>
+</div>
+
+
 {% endblock %}

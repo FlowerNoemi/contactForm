@@ -1,6 +1,19 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 body {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
+.input-class {
+  border-color: #a1a1a0;
+}
+
+.input-class:hover {
+  border-color: #a1a1a0;
+  box-shadow: 0 0 0 0.12rem #a1a1a0;
+}
+
+.input-class:focus {
+  border-color: #a1a1a0;
+  box-shadow: 0 0 0 0.12rem #a1a1a0;
+}
