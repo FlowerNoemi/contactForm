@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\UserMessagesRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserMessagesRepository;
 
 #[ORM\Entity(repositoryClass: UserMessagesRepository::class)]
 class UserMessages
@@ -19,7 +20,7 @@ class UserMessages
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
-    #[ORM\Column(length: 500)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
     public function getId(): ?int
