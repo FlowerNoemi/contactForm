@@ -12,12 +12,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UserMessagesController extends AbstractController
 {
-    #[Route('/success', name: 'success_page')]
-    
-    public function index() : Response {
-        return $this->render('user_messages/success.html.twig');
-    }
-
     #[Route('/', name: 'app_index')]
     public function add(Request $request, UserMessagesRepository $usermsg) : Response {
 
@@ -32,8 +26,7 @@ class UserMessagesController extends AbstractController
                 $usermsg->save($msg, true);
 
                 $this->addFlash('success', 'Köszönjük szépen a kérdésedet. Válaszunkkal hamarosan keresünk a megadott e-mail címen.');
-
-                return $this->redirectToRoute('success_page');
+    
             }
             if ($form->isSubmitted() && (!$form->get('name')->getData() || !$form->get('email')->getData() || !$form->get('message')->getData())) {
                 $this->addFlash('error', 'Hiba! Kérjük töltsd ki az összes mezőt!');
