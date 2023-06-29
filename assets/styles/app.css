@@ -1,7 +1,13 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 body {
-  background-color: lightgray;
+  box-sizing: border-box;
+  background-image: url("/assets/images/bg.webp");
+  background-color: #a3a7a711;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 100% 70%;
 }
 
 .input-class {
@@ -16,4 +22,16 @@ body {
 .input-class:focus {
   border-color: #a1a1a0;
   box-shadow: 0 0 0 0.12rem #a1a1a0;
+}
+
+.contact-main {
+  width: 500px;
+  background-color: #cbd5d570;
+  opacity: 95%;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.success-main {
+  width: 600px;
 }

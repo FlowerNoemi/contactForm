@@ -5,51 +5,56 @@
 
 {% block body %}
 
-<div class="container">
-    <div class="row bg-light">
-        <h1 class="col-12 sub-page-h1 text-center mt-2 text-uppercase">Kapcsolat</h1>
-        <div class="col-12 col-md-10 col-lg-9 mx-auto">
-            {% for flashError in app.flashes('error') %}
-                <div class="alert alert-danger">{{ flashError }}</div>
-            {% endfor %}
-        </div>
-        
-        {% set successMessages = app.flashes('success') %}
-        
-        {% if successMessages is empty %}
-            {{ form_start(form, {"attr": {"novalidate" : "novalidate"}})}}
-            <div class="col-12 col-lg-8 mx-auto">
-                <div class="form-group">
-                    {{ form_label(form.name, "Neved") }}
-                    {{ form_widget(form.name, {'attr': {'class': 'form-control input-class'}}) }}
+<div class="container">  
+    <div class="row">
+        {% set successMessages = app.flashes('success') %}  
+        {% set errorMessages = app.flashes('error') %}  
+
+            {% if successMessages is empty %}
+             
+                    
+                <div class="mx-auto mt-5 contact-main">
+                    <div class="col-12 bg-secondary">
+                    <h1 class="col-12 sub-page-h1 text-center mt-2 text-uppercase text-white">Kapcsolat</h1>
+                    </div>
+                    <div class="col-12 col-sm-10 col-md-9 mx-auto mt-4 px-2">
+                        {% for flashError in errorMessages %}
+                            <div class="alert alert-danger">{{ flashError }}</div>
+                       {% endfor %}
+                    </div>
+                    {{ form_start(form, {"attr": {"novalidate" : "novalidate"}})}}
+                        <div class="col-12 col-sm-10 col-md-9 mx-auto px-2">
+                            <div class="form-group">
+                                {{ form_label(form.name, "Neved") }}
+                                {{ form_widget(form.name, {'attr': {'class': 'form-control input-class'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-10 col-md-9 mx-auto px-2">
+                            <div class="form-group">
+                                {{ form_label(form.email, "E-mail címed") }}
+                                {{ form_widget(form.email, {'attr': {'class': 'form-control input-class'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-10 col-md-9 mx-auto px-2">
+                            <div class="form-group">
+                                {{ form_label(form.message, "Üzenet szövege") }}
+                                {{ form_widget(form.message, {'attr': {'class': 'form-control input-class'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-10 col-md-9 mx-auto my-3 px-2">
+                            <button type="submit" class="btn btn-secondary btn-lg col-12 text-uppercase">Küldés</button>
+                        </div>
+                    {{ form_end(form) }}
                 </div>
-            </div>
-            <div class="col-12 col-lg-8 mx-auto">
-                <div class="form-group">
-                    {{ form_label(form.email, "E-mail címed") }}
-                    {{ form_widget(form.email, {'attr': {'class': 'form-control input-class'}}) }}
-                </div>
-            </div>
-            <div class="col-12 col-lg-8 mx-auto">
-                <div class="form-group">
-                    {{ form_label(form.message, "Üzenet szövege") }}
-                    {{ form_widget(form.message, {'attr': {'class': 'form-control input-class'}}) }}
-                </div>
-            </div>
-            <div class="col-12 col-lg-8 mx-auto my-2">
-                <button type="submit" class="btn btn-secondary btn-lg col-12 text-uppercase">Küldés</button>
-            </div>
-            {{ form_end(form) }}
-        {% else %}
-            <div class="row">
-                <div class="col-12 col-md-10 col-lg-9 mx-auto my-2">
+            {% else %}
+                <div class="col-12 col-md-9 mx-auto my-5 success-main">
                     {% for message in successMessages %}
                         <div class="alert alert-success">{{ message }}</div>
                     {% endfor %}
                     <a href="/" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">Új üzenet</a>
                 </div>
-            </div>
-        {% endif %}
+               
+            {% endif %}
     </div>
 </div>
 
